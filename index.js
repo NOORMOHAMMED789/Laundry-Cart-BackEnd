@@ -10,6 +10,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use('/api/order', require('./routes/orderRoute'));
+app.use('/api/user', require('./routes/userRoute'));
+
 connection();
 
 app.listen(PORT, () => console.log("server is running on port", PORT));
