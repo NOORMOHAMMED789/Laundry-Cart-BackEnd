@@ -95,6 +95,9 @@ router.put("/:id", tokenAuth, async (req, res) => {
     if (req.body.totalItems) {
       updateData.totalItems = req.body.totalItems;
     }
+    if (req.body.price) {
+      updateData.price = req.body.price;
+    }
     const orders = await Order.updateOne({ id: req.params.id }, updateData);
     res.json({
       status: "Success",
