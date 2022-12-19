@@ -79,6 +79,9 @@ router.put("/:id", tokenAuth, async (req, res) => {
     if (req.body.orderId) {
       updateData.orderId = req.body.orderId;
     }
+    if (req.body.orderTimeDate) {
+      updateData.orderTimeDate = req.body.orderTimeDate;
+    }
     const orders = await Order.updateOne({ id: req.params.id }, updateData);
     res.json({
       status: "Success",
