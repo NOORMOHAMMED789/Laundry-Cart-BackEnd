@@ -6,7 +6,7 @@ const orderSchema = mongoose.Schema({
   orderTimeDate: { type: String, required: true },
   storeLocation: { type: String, required: true },
   city: { type: String, required: true },
-  storePhone: { type: Number, required: true, min: 10 },
+  storePhone: { type: Number, required: true, min: 10, unique: true },
   totalItems: { type: Number, required: true },
   price: { type: Number, required: true },
   status: { type: String, default: "Ready to Pickup" },
