@@ -85,6 +85,10 @@ router.put("/:id", tokenAuth, async (req, res) => {
     if (req.body.storeLocation) {
       updateData.storeLocation = req.body.storeLocation;
     }
+
+    if (req.body.city) {
+      updateData.city = req.body.city;
+    }
     const orders = await Order.updateOne({ id: req.params.id }, updateData);
     res.json({
       status: "Success",
