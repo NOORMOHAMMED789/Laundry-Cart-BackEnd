@@ -12,4 +12,4 @@ const orderSchema = mongoose.Schema({
     status: { type: String, default: "Ready to Pickup" }
 }, { timestamps: true })
 
-module.exports = mongoose.model('orders', orderSchema);
+module.exports = mongoose.model("orders", orderSchema);

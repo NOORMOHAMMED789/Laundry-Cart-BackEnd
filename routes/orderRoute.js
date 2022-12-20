@@ -126,11 +126,6 @@ router.delete("/:id", tokenAuth, async (req, res) => {
         message: "Not Authorized",
       });
     }
-    const orders = await Order.deleteOne({ id: req.params.id });
-    res.json({
-      status: "Success",
-      orders,
-    });
   } catch (e) {
     res.status(400).json({
       status: "Failed",
