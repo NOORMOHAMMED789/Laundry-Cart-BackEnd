@@ -10,8 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/v1/order", require("./routes/orderRoute"));
-app.use("/api/v1/user", require("./routes/userRoute"));
+app.use(express.static('public'));
+
+app.use('/api/v1/order', require('./routes/orderRoute'));
+app.use('/api/v1/user', require('./routes/userRoute'));
 
 connection();
 
