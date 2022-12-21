@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+var jwt = require('jsonwebtoken');
+const PRIVATE_KEY = process.env.PRIVATE_KEY || '1234zeesh@encoded';
 const Order = require("../models/order.js");
 
 const tokenAuth = (req, res, next) => {
@@ -24,7 +26,7 @@ const tokenAuth = (req, res, next) => {
   } catch (err) {
     return res.status(401).json({
       status: "Failed",
-      message: "Not Authorized",
+      message: "Internal Server Error " + err.message,
     });
   }
 };
