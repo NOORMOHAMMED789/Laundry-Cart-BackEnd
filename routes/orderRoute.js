@@ -43,6 +43,7 @@ router.get("/", tokenAuth, async (req, res) => {
     res.status(400).json({
       status: "Failed",
       message: e.message,
+      orders: []
     });
   }
 });
