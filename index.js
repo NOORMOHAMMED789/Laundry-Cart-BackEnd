@@ -14,6 +14,7 @@ app.use(express.static('public'));
 
 app.use('/api/v1/order', require('./routes/orderRoute'));
 app.use('/api/v1/user', require('./routes/userRoute'));
+app.use('/api/v1/product', require('./routes/productRoute'));
 
 connection();
 
