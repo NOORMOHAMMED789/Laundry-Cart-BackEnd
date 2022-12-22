@@ -66,9 +66,9 @@ router.post("/", tokenAuth, async (req, res) => {
 });
 
 //! This is for the read the data -- (UPDATE -- PUT Method)
-router.put("/:id", tokenAuth, async (req, res) => {
+router.put("/:order_id", tokenAuth, async (req, res) => {
   try {
-    const data = await Order.findOne({ id: req.params.id });
+    const data = await Order.findOne({ orderId: req.params.order_id });
 
     //* checking the user email is entered same or not.
     if (data.email !== req.loggedIn_email) {
@@ -81,9 +81,6 @@ router.put("/:id", tokenAuth, async (req, res) => {
     const updateData = {};
     if (req.body.orderId) {
       updateData.orderId = req.body.orderId;
-    }
-    if (req.body.orderTimeDate) {
-      updateData.orderTimeDate = req.body.orderTimeDate;
     }
     if (req.body.storeLocation) {
       updateData.storeLocation = req.body.storeLocation;
@@ -104,7 +101,7 @@ router.put("/:id", tokenAuth, async (req, res) => {
     if (req.body.status) {
       updateData.status = req.body.status;
     }
-    const orders = await Order.updateOne({ id: req.params.id }, updateData);
+    const orders = await Order.updateOne({ orderId: req.params.order_id }, updateData);
     res.json({
       status: "Success",
       orders,
