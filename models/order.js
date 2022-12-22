@@ -9,7 +9,8 @@ const orderSchema = mongoose.Schema({
     storePhone: { type: Number, required: true },
     totalItems: { type: Number, required: true },
     price: { type: Number, required: true },
-    status: { type: String, default: "Ready to Pickup" }
+    status: { type: String, default: "Ready to Pickup" },
+    cart: []
 }, { timestamps: true })
 
 module.exports = mongoose.model("orders", orderSchema);
