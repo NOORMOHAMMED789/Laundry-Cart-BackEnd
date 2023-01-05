@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
                 message: "Account not found, Please Register"
             })
         }
-        const response = bcrypt.compare(password, user.password);
+        const response = await bcrypt.compare(password, user.password);
         if (response) {
             const token = jwt.sign({
                 data: user.email
